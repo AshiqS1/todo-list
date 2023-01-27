@@ -1,0 +1,5 @@
+.completed {
+    text-decoration: line-through;
+    color: rgb(120, 120, 120);
+    transition: all 0.25s ease;
+}
