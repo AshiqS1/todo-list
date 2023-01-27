@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewTodoForm from './NewTodoForm';
 import Todo from './Todo';
+import './TodoList.css';
 
 class TodoList extends Component {
 
@@ -70,7 +71,7 @@ class TodoList extends Component {
                             id={todo.id}
                             task={todo.task}
                             completed={todo.completed}
-                            // removeTodo={() => this.removeTodo(todo.id)} -- passing function (with argument) to child using arrow function. 
+                            // removeTodo={() => this.removeTodo(todo.id)} -- ref only. passing function (with argument) to child using arrow function. 
                             removeTodo={this.removeTodo} // passing function (with argument) to child without using arrow function.
                             updateTodo={this.updateTodo} // passing function (with argument) to child without using arrow function.
                             toggleTodo={this.toggleCompletion}
@@ -84,9 +85,9 @@ class TodoList extends Component {
     render() {
         return (
             <div className="TodoList">
-                <NewTodoForm addTodo={this.addTodo} />
-                <h2>List of Todos:</h2>
+                <h1>Todo List <span>A Simple React Todo List App</span></h1>
                 {this.renderTodos()}
+                <NewTodoForm addTodo={this.addTodo} />
             </div>
         )
     }

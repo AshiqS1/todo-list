@@ -60,12 +60,13 @@ class Todo extends Component {
 
     render() {
 
+        // Conditional statement to display either Todo-edit-form or Todo-task.
         let result;
         if (this.state.isEditing) {
             result = (
-                <div>
+                <div className="Todo">
                     <li>
-                        <form onSubmit={this.handleUpdate}>
+                        <form className="Todo-edit-form" onSubmit={this.handleUpdate}>
                             <input
                                 type="text"
                                 name="task"
@@ -79,23 +80,24 @@ class Todo extends Component {
             )
         } else {
             result = (
-                <div>
-                    <li>
-                        <span
-                            onClick={this.handleCompletion}
-                            className={this.props.completed ? "completed" : ""}
-                        >
-                            {this.props.task}
-                        </span>
-                        <button onClick={this.handleRemove}>X</button>
-                        <button onClick={this.toggleUpdateForm}>Edit</button>
+                <div className="Todo">
+                    <li className={this.props.completed ? "Todo-task completed" : "Todo-task"} onClick={this.handleCompletion}>
+                        {this.props.task}
                     </li>
+                    <div className="Todo-buttons">
+                        <button onClick={this.toggleUpdateForm}>
+                            <i className='fas fa-pen' />
+                        </button>
+                        <button onClick={this.handleRemove}>
+                            <i className='fas fa-trash' />
+                        </button>
+                    </div>
                 </div>
             )
         }
 
         return (
-            <div className="Todo">
+            <div>
                 {result}
             </div>
         );
