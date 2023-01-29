@@ -32,6 +32,13 @@ class TodoList extends Component {
         })
     }
 
+    // NOTE: We have access to prevProps and prevState of TodoList using componentDidUpdate. 
+    // componentDidUpdate(prevProps, prevState) {
+    //     console.log("IN TODOLIST COMPONENTDIDUPDATE");
+    //     console.log(prevState.todos);
+    //     console.log(this.state.todos);
+    // }
+
     // This function maps over this.state.todos array, and toggles completed value (true/false), for the individual todo with specific id. 
     toggleCompletion(id) {
         const updatedTodos = this.state.todos.map(todo => {

@@ -23,6 +23,18 @@ class Todo extends Component {
         this.props.removeTodo(this.props.id);
     }
 
+    // NOTE: We have access to prevProps and prevState of Todo using componentDidUpdate. 
+    componentDidUpdate(prevProps, prevState) {
+        console.log("IN TODO COMPONENTDIDUPDATE");
+        console.log(prevProps.task);
+        console.log(this.props.task);
+    }
+
+    // NOTE: componentWillUnmount is called when a Todo component is deleted/removed.
+    componentWillUnmount() {
+        console.log("IN TODO COMPONENTWILLUNMOUNT");
+    }
+
     // Press Edit button to show form to update an individual task. 
     toggleUpdateForm(evt) {
         this.setState({
